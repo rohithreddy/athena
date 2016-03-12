@@ -8,6 +8,10 @@
 
 Because it is the simplest, yet aesthetically pure static blog generator with paramount focus on the reading experience. As a WordPress user since 2007, I think it's time for a change. Other static blog generators are too feature-heavy for my taste. athena just works.
 
+## Tufte CSS
+
+Edward Tufte’s style is known for its simplicity, extensive use of sidenotes, tight integration of graphics with text, and carefully chosen typography. [More about ET][et].
+
 ## Installation
 
 1. Git clone this repo and `cd` in.
@@ -79,16 +83,21 @@ For GitHub pages deployment a nice workflow is the following:
 
 Wait a few moments and browse `your-username.github.io`. Happy blogging!
 
-**Tip**: for future builds and new posts you can automate this process with [this simple bash function][bash] in your `.bash_profile`.
+:bulb: **Tip**: for future builds and new posts you can automate this process with the following simple bash function in your `.bash_profile`.
 
-⚠️ **Warning**: after building athena with `$ python athena.py build` you may encounter the following error in your terminal.
+    deploy() {
+      python athena.py build
+      cd build/ && git add . && git commit -m "athena deployment job" && git push origin master && cd -
+    }
+
+:warning: **Warning**: after building athena with `$ python athena.py build` you may encounter the following error in your terminal.
 
     ValueError: Unexpected status '404 NOT FOUND' on URL /static/
 
 Don't worry about it. The `build/` directory and all `static/` resources are successfully generated in spite of this URL mismatch.
 
-[bash]: https://gist.github.com/apas/dd4632a5ce372e75adec
-
 ## License
 
 MIT
+
+[et]: https://en.wikipedia.org/wiki/Edward_Tufte
