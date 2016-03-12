@@ -74,7 +74,7 @@ For GitHub pages deployment a nice workflow is the following:
 1. `$ python athena.py build`
 1. `$ cd build/`
 1. `$ git add .`
-1. `$ git commit -m "deploys athena"
+1. `$ git commit -m "deploys athena"`
 1. `$ git push origin master`
 
 Wait a few moments and browse `your-username.github.io`. Happy blogging!
