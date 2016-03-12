@@ -40,7 +40,7 @@ Athena uses the beautiful Tufte CSS layout. Most Markdown elements are automatic
     <figcaption>Figure 1: A margin note about the image.</figcaption>
     ![An image.](/static/img/an-image.png "An image.")
 
-In the end of the paragraph you want to the margin note to refer to add:
+In the end of the paragraph you want to the margin note to refer to, add:
 
     <label for="sn-anything" class="margin-toggle sidenote-number"><input type="checkbox" id="sn-anything" class="margin-toggle"><span class="sidenote">Write your margin note here.</span>
 
@@ -69,7 +69,7 @@ For GitHub pages deployment a nice workflow is the following:
 1. Create a `your-username.github.io` repo.
 1. `$ mkdir build` manually and `cd` in.
 1. `$ git init` (Since athena's git ignores the `build/` directory this is fine)
-1. `$ git remote add origin git@github.com:your-username/your-username.github.io.git
+1. `$ git remote add origin git@github.com:your-username/your-username.github.io.git`
 1. `$ cd ..`
 1. `$ python athena.py build`
 1. `$ cd build/`
@@ -88,3 +88,7 @@ Wait a few moments and browse `your-username.github.io`. Happy blogging!
 Don't worry about it. The `build/` directory and all `static/` resources are successfully generated in spite of this URL mismatch.
 
 [bash]: https://gist.github.com/apas/dd4632a5ce372e75adec
+
+## License
+
+MIT
