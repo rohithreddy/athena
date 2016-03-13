@@ -249,7 +249,7 @@ p, footer, pre.code, table.table-wrapper { width: 55%; }
 
 @media screen and (max-width: 760px) { p, footer, pre.code { width: 90%; }
                                        blockquote p, blockquote footer { width: 90%; }
-                                       table.table-wrapper {width: 90%;}}
+                                       table.table-wrapper { width: 90%; } }
 
 .sans { font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif; }
 
