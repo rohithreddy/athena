@@ -26,11 +26,16 @@
 
 
   <script type="text/javascript">
-  window.onload = function () {enquire.register("screen and (max-width:760px)", {
-        match : function() {
-          $('#blogdesc').insertAfter('.thearticle');
-        }
-    })};
+  $(window).on('resize', function() {
+    enquire.register("screen and (max-width: 760px)", {
+      match : function() {
+        $('#blog-p').insertBefore('.thefooter');
+      },
+      unmatch : function() {
+        $("#blog-p").insertAfter("body > div.thearticle > article > h1:nth-child(1)");
+      }
+    });
+  });
   </script>
 
 </head>
@@ -40,7 +45,7 @@
   <article>
   {% block content %}
     <h1>{{ page.title }}</h1>
-    <p><span id="blogdesc" class="marginnote">
+    <p id="blog-p"><span id="blogdesc" class="marginnote">
     <span class="newthought">I'm Athena.</span> This is a brief blog description and navigation bar for each post.<br><br><a href="/">home</a> · <a href="/about/">about</a></span></p>
     <subtitle class="sub-date">{{ page.date.strftime('%B %d, %Y') }} · <span style="font-size: 1.6rem;"><a style="border-bottom-width: 0px !important;" href="{{ request.path }}">&infin;</a></span></subtitle>
 
