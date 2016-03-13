@@ -2,7 +2,7 @@
 
 **athena** is an elegant, minimalist, light-weight static blog generator written in Python. It is based on Flask and Tufte CSS.
 
-![Athena screenshot](/static/athena.png)
+![athena screenshot](/static/athena.png)
 
 You can browse the [live demo here][demo].
 
@@ -31,7 +31,7 @@ In order for the Tables Markdown extension to properly render tables according t
 
 ### Post structure
 
-Athena reads Markdown files from the `pages/` directory and builds static HTML files. Posts must start with the following YAML-like structure:
+athena reads Markdown files from the `pages/` directory and builds static HTML files. Posts must start with the following YAML-like structure:
 
     title: Title of the post
     date: 2016-03-12
@@ -41,7 +41,7 @@ Title and date values are extracted for both the index loop and the post's perma
 
 ### Tufte CSS-specific elements
 
-Athena uses the beautiful Tufte CSS layout. Most Markdown elements are automatically rendered to the proper HTML element and corresponding Tufte treatment. However, in order to fully utilize Tufte CSS, it is recommended you include images and margin notes the following way.
+athena uses the beautiful Tufte CSS layout. Most Markdown elements are automatically rendered to the proper HTML element and corresponding Tufte treatment. However, in order to fully utilize Tufte CSS, it is recommended you include images and margin notes the following way.
 
     <figcaption>Figure 1: A margin note about the image.</figcaption>
     ![An image.](/static/img/an-image.png "An image.")
@@ -58,7 +58,7 @@ When including a table element align the first column to the left for maximum Tu
 
 ### Remove boilerplate
 
-Inside `templates/` edit various instances of foobar Athena labeling in `about.html`, `index.html`, and `page.html`. In `page.html` edit lines 19 and 24 (Facebook and Twitter image meta tags) and point them to a proper image link inside `static/img/`. 
+Inside `templates/` edit various instances of foobar athena labeling in `about.html`, `index.html`, and `page.html`. In `page.html` edit lines 19 and 24 (Facebook and Twitter image meta tags) and point them to a proper image link inside `static/img/`.
 
 ### Try as you write
 
