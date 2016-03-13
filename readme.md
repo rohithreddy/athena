@@ -6,7 +6,7 @@
 
 You can browse the [live demo here][demo].
 
-## Why Athena?
+## Why athena?
 
 Because it is the simplest, yet aesthetically pure static blog generator with paramount focus on the reading experience. As a WordPress user since 2007, I think it's time for a change. Other static blog generators are too feature-heavy for my taste. athena just works.
 
