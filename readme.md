@@ -43,14 +43,18 @@ Title and date values are extracted for both the index loop and the post's perma
 
 ### Tufte CSS-specific elements
 
-athena uses the beautiful Tufte CSS layout. Most Markdown elements are automatically rendered to the proper HTML element and corresponding Tufte treatment. However, in order to fully utilize Tufte CSS, it is recommended you include images and margin notes the following way.
+athena uses the beautiful Tufte CSS layout. Most Markdown elements are automatically rendered to the proper HTML element and corresponding Tufte treatment. However, in order to fully utilize Tufte CSS, it is recommended you include images the following way. (Essentially write an additional `<figcaption>` tag a line above the Markdown image reference.)
 
     <figcaption>Figure 1: A margin note about the image.</figcaption>
     ![An image.](/static/img/an-image.png "An image.")
 
-In the end of the paragraph you want to the margin note to refer to, add:
+In the end of the paragraph (or even inline) you want to the margin note to refer to, add:
 
-    <label for="sn-anything" class="margin-toggle sidenote-number"><input type="checkbox" id="sn-anything" class="margin-toggle"><span class="sidenote">Write your margin note here.</span>
+    [^footnote]
+
+and subsequently, at the end of the file add:
+
+    [^footnote]: Text for the margin note.
 
 When including a table element align the first column to the left for maximum Tufte enjoyment.
 
