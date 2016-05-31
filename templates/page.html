@@ -23,6 +23,22 @@
   <meta name="twitter:url" content="{{ request.path }}" />
   <!-- <meta name="twitter:image" content="{{ url_for('static', filename='img/file.png') }}" /> -->
 
+  <script type="text/javascript">
+  var spans = $(".sidenote")
+  var labels = $("label")
+  $.each(spans, function(index, value) {
+    console.log(index + ": " + value);
+    value.remove();
+  });
+  $.each(labels, function(index, value) {
+    $(labels[index]).after(spans[index]);
+  });
+
+  // <label class="margin-toggle sidenote-number" for="sn-anything"><input class="margin-toggle" id="sn-anything" type="checkbox">
+  console.log(labels)
+  $("label").replaceWith("<label class='margin-toggle sidenote-number' for='sn-anything'><input class='margin-toggle' id='sn-anything' type='checkbox'>");
+</script>
+
 
 
   <script type="text/javascript">
@@ -58,11 +74,21 @@
     <p>Footer</p>
     <p>copyright, <i>2016</i></p>
   </div> <!-- footer end -->
-</body>
-
-<script type="text/javascript">
+  <script type="text/javascript">
   $(".thearticle > article > p:nth-of-type(2)").html(function (i, html) {
     return html.replace(/(\w+\S+\s)/, '<span class="newthought">$1</span>')
   });
+
+  var spans = $(".sidenote")
+  var labels = $("label")
+  $.each(spans, function(index, value) {
+    console.log(index + ": " + value);
+    value.remove();
+  });
+  $.each(labels, function(index, value) {
+    $(labels[index]).after(spans[index]);
+  });
+  $("label").replaceWith("<label class='margin-toggle sidenote-number' for='sn-anything'><input class='margin-toggle' id='sn-anything' type='checkbox'>");
 </script>
+</body>
 </html>

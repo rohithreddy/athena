@@ -6,7 +6,7 @@ from flask_frozen import Freezer
 DEBUG = True
 FLATPAGES_AUTO_RELOAD = DEBUG
 FLATPAGES_EXTENSION = '.md'
-FLATPAGES_MARKDOWN_EXTENSIONS = ['codehilite', 'markdown.extensions.tables']
+FLATPAGES_MARKDOWN_EXTENSIONS = ['codehilite', 'markdown.extensions.tables', 'markdown.extensions.footnotes']
 
 athena = Flask(__name__)
 athena.config.from_object(__name__)
