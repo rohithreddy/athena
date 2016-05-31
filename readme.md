@@ -27,6 +27,8 @@ In order for the Tables Markdown extension to properly render tables according t
 
     table = etree.SubElement(parent, 'table', {"class":"table-wrapper"})
 
+In order for the Footnotes Markdown extension to properly render footnotes according to the custom Tufte CSS rules you need to modify `footnotes.py`. Open `env/lib/python2.7/site-packages/markdown/extensions/footnotes.py` and replace all its contents with the following `footnotes.py` version: [https://gist.github.com/apas/fbdcc1617be4b9dbcab8895ad028b285](https://gist.github.com/apas/fbdcc1617be4b9dbcab8895ad028b285)
+
 ## Usage
 
 ### Post structure
