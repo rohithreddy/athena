@@ -4,7 +4,8 @@
 
 @font-face {
   font-family: Menlo Regular;
-  src: url("Menlo-Regular.ttf");
+  src: url("menlo-regular.woff") format("woff"),
+      url("menlo-regular.woff2") format("woff2");
 }
 
 pre {

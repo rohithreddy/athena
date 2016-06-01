@@ -4,14 +4,19 @@
 */
 
 @font-face { font-family: ETBembo;
-             src: url("ETBembo-RomanLF.ttf"); }
+             /*src: url("ETBembo-RomanLF.ttf"); }*/
+             src: url("etbembo-romanlf-webfont.woff") format("woff"),
+                  url("etbembo-romanlf-webfont.woff2") format("woff2");
+                }
 @font-face { font-family: ETBembo;
-             src: url("ETBembo-DisplayItalic.ttf");
+             src: url("etbembo-displayitalic-webfont.woff") format("woff"),
+                  url("etbembo-displayitalic-webfont.woff") format("woff2");
              font-weight: normal;
              font-style: italic; }
 @font-face {
   font-family: Menlo Regular;
-  src: url("Menlo-Regular.ttf");
+  src: url("menlo-regular.woff") format("woff"),
+      url("menlo-regular.woff2") format("woff2");
 }
 
 html { font-size: 15px; }
