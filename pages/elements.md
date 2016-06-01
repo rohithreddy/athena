@@ -7,7 +7,6 @@ description: A short description of the post.
 
 > Blockquote
 
-<!-- wrap This in <span> -->
 This, is a paragraph with `code`, **bold**, *italics*, a numbered margin note. [^firstnote]
 
 jQuery applies a `newthought` span in the first word of the first paragraph element of each post. [^asd]
