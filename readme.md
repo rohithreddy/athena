@@ -98,12 +98,6 @@ Wait a few moments and browse `your-username.github.io`. Happy blogging!
       cd build/ && git add . && git commit -m "athena deployment job" && git push origin master && cd -
     }
 
-:warning: **Warning**: after building athena with `$ python athena.py build` you may encounter the following error in your terminal.
-
-    ValueError: Unexpected status '404 NOT FOUND' on URL /static/
-
-Don't worry about it. The `build/` directory and all `static/` resources are successfully generated in spite of this URL mismatch.
-
 ## License
 
 MIT
