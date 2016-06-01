@@ -37,3 +37,9 @@ $.each(labels, function(index, value) {
   $(labels[index]).after(spans[index]);
 });
 $("label").replaceWith("<label class='margin-toggle sidenote-number' for='sn-anything'><input class='margin-toggle' id='sn-anything' type='checkbox'>");
+
+window.onload = function () {enquire.register("screen and (max-width:760px)", {
+  match : function() {
+    $('.marginnote').insertAfter('.thearticle');
+  }
+})};
