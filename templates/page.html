@@ -6,6 +6,7 @@
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='latex.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='pygments.css') }}">
   <script type="text/javascript" src="{{ url_for('static', filename='enquire.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='resources.js') }}"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel='shortcut icon' href="{{ url_for('static', filename='favicon.ico') }}" type='image/x-icon'/>
@@ -22,38 +23,6 @@
   <meta name="twitter:description" content="{{ page.description }}" />
   <meta name="twitter:url" content="{{ request.path }}" />
   <!-- <meta name="twitter:image" content="{{ url_for('static', filename='img/file.png') }}" /> -->
-
-  <script type="text/javascript">
-  var spans = $(".sidenote")
-  var labels = $("label")
-  $.each(spans, function(index, value) {
-    console.log(index + ": " + value);
-    value.remove();
-  });
-  $.each(labels, function(index, value) {
-    $(labels[index]).after(spans[index]);
-  });
-
-  // <label class="margin-toggle sidenote-number" for="sn-anything"><input class="margin-toggle" id="sn-anything" type="checkbox">
-  console.log(labels)
-  $("label").replaceWith("<label class='margin-toggle sidenote-number' for='sn-anything'><input class='margin-toggle' id='sn-anything' type='checkbox'>");
-</script>
-
-
-
-  <script type="text/javascript">
-  $(window).on('resize', function() {
-    enquire.register("screen and (max-width: 760px)", {
-      match : function() {
-        $('#blog-p').insertBefore('.thefooter');
-      },
-      unmatch : function() {
-        $("#blog-p").insertAfter("body > div.thearticle > article > h1:nth-child(1)");
-      }
-    });
-  });
-  </script>
-
 </head>
 <body>
   <div class="thearticle">
@@ -74,21 +43,5 @@
     <p>Footer</p>
     <p>copyright, <i>2016</i></p>
   </div> <!-- footer end -->
-  <script type="text/javascript">
-  $(".thearticle > article > p:nth-of-type(2)").html(function (i, html) {
-    return html.replace(/(\w+\S+\s)/, '<span class="newthought">$1</span>')
-  });
-
-  var spans = $(".sidenote")
-  var labels = $("label")
-  $.each(spans, function(index, value) {
-    console.log(index + ": " + value);
-    value.remove();
-  });
-  $.each(labels, function(index, value) {
-    $(labels[index]).after(spans[index]);
-  });
-  $("label").replaceWith("<label class='margin-toggle sidenote-number' for='sn-anything'><input class='margin-toggle' id='sn-anything' type='checkbox'>");
-</script>
 </body>
 </html>
