@@ -17,11 +17,11 @@ Edward Tufte’s style is known for its simplicity, extensive use of sidenotes, 
 ## Installation
 
 1. Git clone this repo and `cd` in.
-1. `$ virtualenv env`
-1. `$ source env/bin/activate`
-1. `$ pip install -r requirements.txt`
+1. `python install.py`
 
 ## Modifications
+
+:bulb: As of [commit `91cfe00`][commit] the following necessary modifications are performed automatically by way of the installer script.
 
 In order for the Tables Markdown extension to properly render tables according to the custom Tufte CSS rules you need to modify `tables.py`. Open `env/lib/python2.7/site-packages/markdown/extensions/tables.py` and edit line 57 to:
 
@@ -68,7 +68,7 @@ Inside `templates/` edit various instances of foobar athena labeling in `about.h
 
 ### Try as you write
 
-Upon successfully installing athena you can start a local Flask server with `$ python athena.py`. Then visit `127.0.0.1:5000` from your browser. This allows you to test everything locally before committing and deploying to your remote server. If you're using Sublime Text and Google Chrome, I recommend installing the LiveReload plugins so that you don't have to manually refresh upon save.
+Upon successfully installing athena, a local Flask server starts automatically. Now, just visit `127.0.0.1:5000` from your browser. Generally, you can start a local Flask server with `$ python athena.py`. This allows you to test everything locally before committing and deploying to your remote server. If you're using Sublime Text and Google Chrome, I recommend installing the LiveReload plugins so that you don't have to manually refresh upon save.
 
 ### Deploy
 
@@ -104,3 +104,4 @@ MIT
 
 [et]: https://en.wikipedia.org/wiki/Edward_Tufte
 [demo]: https://apas.github.io/athena/
+[commit]: https://github.com/apas/athena/commit/91cfe00224b08f02bddf6aad4a7039aa54a3cd9e
