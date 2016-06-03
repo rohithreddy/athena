@@ -52,8 +52,8 @@ execfile(activate_env, dict(__file__=activate_env))
 print_color("==> Installing pip dependencies", 4)
 proc.call(["pip", "install", "-r", "requirements.txt"])
 
-print_color("==> Initiating custom markdown extension amendments" \
-            " modifications", 4)
+print_color("==> Initiating custom markdown extension " \
+            " amendments", 4)
 print_color("     -- tables.py", 4)
 fin = open(table_file_path, "r")
 table_file = fin.read()

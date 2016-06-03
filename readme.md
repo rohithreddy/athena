@@ -91,12 +91,19 @@ For GitHub pages deployment a nice workflow is the following:
 
 Wait a few moments and browse `your-username.github.io`. Happy blogging!
 
-:bulb: **Tip**: for future builds and new posts you can automate this process with the following simple bash function in your `.bash_profile`.
+:bulb: **Tip**: install athena as executable in your `$PATH`. Start the local server and build your site from anywhere. Create a file named `athena` in `/usr/local/bin/` or your `$PATH` equivalent with the following content:
 
-    deploy() {
-      python athena.py build
-      cd build/ && git add . && git commit -m "athena deployment job" && git push origin master && cd -
-    }
+    #!/bin/bash
+
+    if [[ $# -eq 1 ]]; then
+      cd /directory/where/athena/is && source env/bin/activate && python athena.py build
+    else
+      cd /directory/where/athena/is && source env/bin/activate && python athena.py
+    fi
+
+Then make it executable:
+
+    $ chmod +x /usr/local/bin/athena
 
 ## License
 
