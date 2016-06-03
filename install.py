@@ -1,7 +1,6 @@
 import sys
 import os
 import subprocess as proc
-import requests
 
 athena = "athena.py"
 version = "python" + sys.version[:3]
@@ -50,10 +49,10 @@ proc.call(["virtualenv", "env"])
 print_color("==> Activating the virtual environment", 4)
 execfile(activate_env, dict(__file__=activate_env))
 
-print_color("==> Install pip dependencies", 4)
+print_color("==> Installing pip dependencies", 4)
 proc.call(["pip", "install", "-r", "requirements.txt"])
 
-print_color("==> Initiating custom markdown extensions" \
+print_color("==> Initiating custom markdown extension amendments" \
             " modifications", 4)
 print_color("     -- tables.py", 4)
 fin = open(table_file_path, "r")
@@ -65,9 +64,9 @@ fout.write(new_table_file)
 fout.close()
 
 print_color("     -- footnotes.py", 4)
-new_footnote_file = requests.get(new_footnote_file_path)
+new_footnote_file = proc.check_output(["curl", new_footnote_file_path])
 fout = open(footnote_file_path, "w")
-fout.write(new_footnote_file.text)
+fout.write(new_footnote_file)
 fout.close()
 
 print_color("==> Installation complete", 4)
