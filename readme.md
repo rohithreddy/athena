@@ -10,7 +10,7 @@ You can browse the [live demo here][demo].
 
 Because it is the simplest, yet aesthetically pure, static blog generator with paramount focus on the reading experience. As a WordPress user since 2007, I think it's time for a change. Other static blog generators are too feature-heavy for my taste. athena just works.
 
-## Tufte CSS
+### Tufte CSS
 
 Edward Tufte’s style is known for its simplicity, extensive use of sidenotes, tight integration of graphics with text, and carefully chosen typography. [More about ET][et].
 
@@ -19,7 +19,7 @@ Edward Tufte’s style is known for its simplicity, extensive use of sidenotes, 
 1. Git clone this repo and `cd` in.
 1. `python install.py`
 
-## Modifications
+### Modifications
 
 :bulb: As of [commit `91cfe00`][commit] the following necessary modifications are performed automatically by way of the installer script.
 
@@ -43,10 +43,12 @@ Title and date values are extracted for both the index loop and the post's perma
 
 ### Tufte CSS-specific elements
 
-athena uses the beautiful Tufte CSS layout. Most Markdown elements are automatically rendered to the proper HTML element and corresponding Tufte treatment. However, in order to fully utilize Tufte CSS, it is recommended you include images the following way. (Essentially write an additional `<figcaption>` tag a line above the Markdown image reference.)
+athena uses the beautiful Tufte CSS layout. Markdown is automatically rendered to proper HTML and corresponding Tufte rules. However, in order to fully utilize Tufte CSS, it is recommended you include images with a caption (i.e., a margin note in Tufte parlance) the following way: write an additional `<figcaption>` tag a line above or below the Markdown image reference.
 
     <figcaption>Figure 1: A margin note about the image.</figcaption>
     ![An image.](/static/img/an-image.png "An image.")
+
+A relevant directory to host and serve from all your image assets is `static/img`.
 
 In the end of the paragraph (or even inline) you want to the margin note to refer to, add:
 
@@ -72,7 +74,7 @@ Upon successfully installing athena, a local Flask server starts automatically. 
 
 ### Deploy
 
-athena works out of the box with any server capable of serving HTML content. If you do not want to pay for or own a server you can use GitHub pages. It's where the cool kids hang out nowadays, anyway. You can generate your static blog with `$ python athena.py build`. A new `build/` directory will be created by athena (it's automatically ignored by git.) For subsequent builds, athena doesn't rebuild the entire codebase, rather than only the updated files.
+athena works out of the box with any server capable of serving HTML content. If you do not want to pay for or own a server you can use GitHub Pages. It's where the cool kids hang out nowadays, anyway. You can generate your static blog with `$ python athena.py build`. A new `build/` directory will be created by athena (it's automatically ignored by git.) For subsequent builds, athena doesn't rebuild the entire codebase, rather than only the updated files.
 
 If you're using your own hosting solution you know what to do now. Happy blogging!
 
