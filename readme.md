@@ -74,7 +74,7 @@ Upon successfully installing athena, a local Flask server starts automatically. 
 
 ### Deploy
 
-athena works out of the box with any server capable of serving HTML content. If you do not want to pay for or own a server you can use GitHub Pages. It's where the cool kids hang out nowadays, anyway. You can generate your static blog with `$ python athena.py build`. A new `build/` directory will be created by athena (it's automatically ignored by git.) For subsequent builds, athena doesn't rebuild the entire codebase, rather than only the updated files.
+athena works out of the box with any server capable of serving HTML content. If you do not want to pay for or own a server you can use GitHub Pages. It's where the cool kids hang out nowadays, anyway. You can generate your static blog with `$ python athena.py build`. A new `build/` directory will be created by athena (it's automatically ignored by git.) For subsequent builds, athena rebuilds only the updated files, rather than the entire codebase.
 
 If you're using your own hosting solution you know what to do now. Happy blogging!
 
