@@ -7,6 +7,7 @@ DEBUG = True
 FLATPAGES_AUTO_RELOAD = DEBUG
 FLATPAGES_EXTENSION = '.md'
 FLATPAGES_MARKDOWN_EXTENSIONS = ['codehilite', 'markdown.extensions.tables', 'markdown.extensions.footnotes']
+FREEZER_REMOVE_EXTRA_FILES = False
 
 athena = Flask(__name__)
 athena.config.from_object(__name__)
