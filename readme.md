@@ -8,7 +8,7 @@ You can browse the [live demo here][demo].
 
 ## Why athena?
 
-Because it is the simplest, yet aesthetically pure, static blog generator with paramount focus on the reading experience. As a WordPress user since 2007, I think it's time for a change. Other static blog generators are too feature-heavy for my taste. athena just works.
+Because it is the simplest, yet aesthetically pure, static blog generator with paramount focus on the reading experience. As a WordPress user since 2007, I think it's time for a change. Other static blog generators are too feature-heavy and bloated. athena just works.
 
 ### Tufte CSS
 
@@ -39,7 +39,7 @@ athena reads Markdown files from the `pages/` directory and builds static HTML f
     date: 2016-03-12
     description: A short description of the post.
 
-Title and date values are extracted for both the index loop and the post's permalink. The description value is used in the post's HTML meta tags.
+Title and date values are extracted for the index loop and the post's permalink. The description value is used in the post's HTML meta tags.
 
 ### Tufte CSS-specific elements
 
