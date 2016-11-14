@@ -1,7 +1,10 @@
 import sys
-from flask import Flask, render_template
+from urlparse import urljoin
+from datetime import date, datetime
+from flask import Flask, render_template, request
 from flask_flatpages import FlatPages
 from flask_frozen import Freezer
+from werkzeug.contrib.atom import AtomFeed
 
 DEBUG = True
 FLATPAGES_AUTO_RELOAD = DEBUG
@@ -13,6 +16,27 @@ athena = Flask(__name__)
 athena.config.from_object(__name__)
 pages = FlatPages(athena)
 freezer = Freezer(athena)
+
+def make_external(url):
+  return urljoin(request.url_root, url)
+
+@athena.route("/feed.atom")
+def recent_feed():
+  feed = AtomFeed("Marginalia",
+    feed_url = request.url_root,
+    url = request.url_root,
+    subtitle="Marginalia Atom Feed")
+  for page in pages:
+    feed.add(page["title"],
+      unicode(page.__html__()),
+       content_type='html',
+       url=make_external("/posts/"+page.path),
+       author="Apostolos Papadopoulos",
+       updated=datetime.combine(page["date"], datetime.min.time()),
+       published=datetime.combine(page["date"], datetime.min.time()),
+       summary=page["description"]
+      )
+  return feed.get_response()
 
 @athena.route("/")
 def index():
