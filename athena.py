@@ -22,10 +22,10 @@ def make_external(url):
 
 @athena.route("/feed.atom")
 def recent_feed():
-  feed = AtomFeed("Marginalia",
+  feed = AtomFeed("Athena",
     feed_url = request.url_root,
     url = request.url_root,
-    subtitle="Marginalia Atom Feed")
+    subtitle="Athena Atom Feed")
   for page in pages:
     feed.add(page["title"],
       unicode(page.__html__()),
