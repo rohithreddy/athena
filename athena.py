@@ -9,7 +9,10 @@ from werkzeug.contrib.atom import AtomFeed
 DEBUG = True
 FLATPAGES_AUTO_RELOAD = DEBUG
 FLATPAGES_EXTENSION = '.md'
-FLATPAGES_MARKDOWN_EXTENSIONS = ['codehilite', 'markdown.extensions.tables', 'markdown.extensions.footnotes']
+FLATPAGES_MARKDOWN_EXTENSIONS = ['codehilite',
+    'markdown.extensions.tables',
+    'markdown.extensions.footnotes'
+  ]
 FREEZER_REMOVE_EXTRA_FILES = False
 
 athena = Flask(__name__)
@@ -23,19 +26,22 @@ def make_external(url):
 @athena.route("/feed.atom")
 def recent_feed():
   feed = AtomFeed("Athena",
-    feed_url = request.url_root,
-    url = request.url_root,
-    subtitle="Athena Atom Feed")
+      feed_url = request.url_root,
+      url = request.url_root,
+      subtitle="Athena Atom Feed"
+    )
+
   for page in pages:
     feed.add(page["title"],
       unicode(page.__html__()),
-       content_type='html',
-       url=make_external("/posts/"+page.path),
-       author="Apostolos Papadopoulos",
-       updated=datetime.combine(page["date"], datetime.min.time()),
-       published=datetime.combine(page["date"], datetime.min.time()),
-       summary=page["description"]
+        content_type='html',
+        url=make_external("/posts/"+page.path),
+        author="Apostolos Papadopoulos",
+        updated=datetime.combine(page["date"], datetime.min.time()),
+        published=datetime.combine(page["date"], datetime.min.time()),
+        summary=page["description"]
       )
+
   return feed.get_response()
 
 @athena.route("/")
