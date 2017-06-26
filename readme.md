@@ -104,8 +104,9 @@ Upon successfully installing athena, a local Flask server starts automatically.
 Now, just visit `127.0.0.1:5000` from your browser. Generally, you can start a
 local Flask server with `$ python athena.py`. This allows you to test
 everything locally before committing and deploying to your remote server. If
-you're using Sublime Text and Google Chrome, I recommend installing the
-LiveReload plugins so that you don't have to manually refresh upon save.
+you're using Sublime Text I recommend installing the LiveReload plugin
+for Safari or Google Chrome so that you don't have to manually refresh
+upon save.
 
 ### Deploy
 
