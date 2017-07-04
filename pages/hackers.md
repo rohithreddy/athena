@@ -1,6 +1,7 @@
 ---
 title: Hackers are painters
 date: 2017-07-03
+description: Paul Graham's iconic essay.
 ...
 
 When I finished grad school in computer science I went to art school to

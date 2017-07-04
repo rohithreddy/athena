@@ -1,6 +1,7 @@
 ---
 title: Elements
 date: 2016-03-12
+description: A demonstration of Tufte CSS on various HTML elements.
 ...
 
 This, is a paragraph with `code`, **bold**, *italics*, a numbered margin note. [^firstnote]

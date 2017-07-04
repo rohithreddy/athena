@@ -1,6 +1,7 @@
 ---
 title: My early life
 date: 2017-07-04
+description: Winston Churchill's autobiography.
 ...
 
 # By Winston S. Churchill
