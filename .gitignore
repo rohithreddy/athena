@@ -5,3 +5,4 @@ build/
 *.log
 config.py
 pages/all.bib
+.DS_Store
