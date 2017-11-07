@@ -15,7 +15,7 @@ born on November 30, 1874, and I left Ireland early in the
 year 1879. My father had gone to Ireland as secretary to 
 his father, the Duke of Marlborough, appointed Lord-Lieu 
 tenant by Mr. Disraeli in 1876. We lived in a house called 
-*The Little Lodge/ about a stone's throw from the Vice 
+*The Little Lodge* about a stone's throw from the Vice
 regal. Here I spent nearly three years of childhood. I 
 have clear and vivid impressions of some events. I remem 
 ber my grandfather, the Viceroy, unveiling the Lord Gough 

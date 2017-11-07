@@ -82,6 +82,7 @@ class FlatPagesPandoc(object):
     extra_args = [
       "--filter=pandoc-crossref",
       "--filter=pandoc-citeproc",
+      "--filter=pandoc-sidenote",
       "--standalone", "-S",
       "--mathml",
       "--base-header-level=2",
