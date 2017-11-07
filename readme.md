@@ -1,7 +1,7 @@
 # athena
 
 **athena** is an elegant, minimalist, light-weight static blog generator
-written in Python. It is based on Flask and Tufte CSS.
+written in Python. It is based on Flask, Pandoc, and Tufte CSS.
 
 ![athena screenshot](/static/athena.png)
 
@@ -22,62 +22,78 @@ tight integration of graphics with text, and carefully chosen typography.
 
 ## Installation
 
-1. Git clone this repo and `cd` in.
-1. `python install.py`
-
-### Modifications
-
-:bulb: As of [commit `91cfe00`][commit] the following necessary modifications
-are performed automatically by way of the installer script. :bulb:
-
-In order for the Tables Markdown extension to properly render tables according
-to the custom Tufte CSS rules you need to modify `tables.py`. Open 
-`env/lib/python2.7/site-packages/markdown/extensions/tables.py` and edit line
-57 to:
-
-    table = etree.SubElement(parent, 'table', {"class":"table-wrapper"})
-
-In order for the Footnotes Markdown extension to properly render footnotes
-according to the custom Tufte CSS rules you need to modify `footnotes.py`.
-Open `env/lib/python2.7/site-packages/markdown/extensions/footnotes.py` and
-replace all its contents with [the following `footnotes.py` version.][footnote]
+1. `git clone https://github.com/apas/athena.git`
+1. `brew install pandoc`
+1. `brew install pandoc-citeproc`
+1. `brew install pandoc-crossref`
+1. `brew install pandoc-sidenote`
+1. `virtualenv --python=/usr/bin/python env` or Python 2.7 equivalent path
+1. `source env/bin/activate`
+1. `pip install -r requirements.txt`
 
 ## Usage
 
 ### Post structure
 
 athena reads Markdown files from the `pages/` directory and builds static HTML
-files. Posts must start with the following YAML-like structure:
+files. Posts must start with the following YAML structure:
 
+    ---
+    author: Johnny Appleseed
     title: Title of the post
     date: 2016-03-12
     description: A short description of the post.
+    ...
 
 Title and date values are extracted for the index loop and the post's
-permalink. The description value is used in the post's HTML meta tags.
+permalink. Both the author and description values are used in the post's HTML
+meta tags and are optional. The name of the Markdown file can by anything.
 
 ### Tufte CSS-specific elements
 
 athena uses the beautiful Tufte CSS layout. Markdown is automatically rendered
-to proper HTML and corresponding Tufte rules. However, in order to fully
-utilize Tufte CSS, it is recommended you include images with a caption (i.e.,
-a margin note in Tufte parlance) the following way: write an additional
-`<figcaption>` tag a line above or below the Markdown image reference.
+to proper HTML and corresponding Tufte rules.
 
-    <figcaption>Figure 1: A margin note about the image.</figcaption>
-    ![An image.](/static/img/an-image.png "An image.")
+I highlight all relevant syntax in the [elements][elems] file. However, a
+brief summary of the most frequent elements is provided below.
+
+**Image**
+
+    ![Pieter Bruegel.](/static/img/bruegel.jpg){#fig:bruegel}
 
 A relevant directory to host and serve from all your image assets is
-`static/img`.
+`static/img`. The image caption is used as the image's margin note.
 
-In the end of the paragraph (or even inline) you want to the margin note to
-refer to, add:
+**Side note** (Numbered footnote in the right margin)
 
-    [^footnote]
+    Etiam ut arcu nec massa bibendum lobortis ac eu justo. Proin sit amet
+    sagittis est. [^note]
 
-and subsequently, at the end of the file add:
+    [^note]: A note.
 
-    [^footnote]: Text for the margin note.
+**Margin note** (Unnumbered footnote in the right margin)
+
+    They're not doing research per se, though if in the course of
+    trying to make good things they discover some new technique, so much the
+    better. [^mn]
+
+    [^mn]:
+      {-} This is a margin note. Notice there isn't a number preceding
+      the note.
+
+**Code**
+
+You can write inline code by enclosing text in single backticks.
+Alternatively, for blocks use three backticks. athena supports code
+highlighting via Pygmentize. 
+
+    ``` {.python}
+    # a code block with syntax highlighting
+    def hello():
+        print "world"
+    ```
+
+**Table**
 
 When including a table element align the first column to the left for maximum
 Tufte enjoyment.
@@ -85,28 +101,58 @@ Tufte enjoyment.
     | Tables   |      Are      |  Cool |
     |:---------|---------------|-------|
     | col 1 is |  left-aligned |  Foo  |
+    : A demo table. {#tbl:demo}
+
+**Bib citations**
+
+Simply create a `.bib` file in the `/pages` directory and populate it
+accordingly. At build time, athena creates a new `.bib` index out of all
+`.bib` files. Then, simply reference your citation as such:
+
+    At one end you have people who are really mathematicians, but call
+    what they're doing computer science so they can get
+    DARPA grants. [@clark1988design]
+
+It is recommended to end your Markdown files which reference a `.bib` citation
+with a `# References` element in order to properly highlight them.
+
+**Math**
+
+You can write inline math by enclosing text in single dollar signs.
+Alternatively, for blocks use double dollar signs and a space. Math is
+rendered via [MathML][mml].
+
+    See [@eq:euler].
+
+    $$ e^{i\pi} - 1 = 0 $$ {#eq:euler}
+
+**Cross-references**
+
+You might have observed that for image, table, and math references
+athena also relies on `{#fig:xxx}` and `[@fig:xxx]` (`tbl` and `eq`
+respectively) elements. These are optional and are used by `pandoc-crossref`
+to automatically generate numbered captions and references in the generated
+text. For the complete cross-reference documentation please visit the
+`pandoc-crossref` [repository][pdcf].
 
 ### Atom feed
 
-Athena generates an Atom feed at the `/feed.atom` URL endpoint.
+athena generates an Atom feed at the `/feed.atom` endpoint.
 
 ### Remove boilerplate
 
-Inside `templates/` edit various instances of foobar athena labeling in
+Inside `templates/` edit various instances of default athena labeling in
 `about.html`, `index.html`, and `page.html`. In `page.html` edit lines 19 and
-24 (Facebook and Twitter image meta tags) and point them to a proper image
+24 (Facebook and Twitter image meta tags) and point both to a proper image
 link inside `static/img/`. In `athena.py` amend lines 25, 28, 34 with your
-blog and author name in order for the Atom feed to be appropriately generated.
+blog and author name in order to appropriately generate the Atom feed.
 
 ### Try as you write
 
-Upon successfully installing athena, a local Flask server starts automatically.
-Now, just visit `127.0.0.1:5000` from your browser. Generally, you can start a
-local Flask server with `$ python athena.py`. This allows you to test
-everything locally before committing and deploying to your remote server. If
-you're using Sublime Text I recommend installing the LiveReload plugin
-for Safari or Google Chrome so that you don't have to manually refresh
-upon save.
+You can start local Flask server with `$ python athena.py` at
+`127.0.0.1:5000`. This allows you to test everything locally before committing
+and deploying to your remote server. If you're using Sublime Text I recommend
+installing the LiveReload plugin for Safari or Google Chrome.
 
 ### Deploy
 
@@ -114,18 +160,18 @@ athena works out of the box with any server capable of serving HTML content.
 If you do not want to pay for or own a server you can use GitHub Pages. It's
 where the cool kids hang out nowadays, anyway. You can generate your static
 blog with `$ python athena.py build`. A new `build/` directory will be created
-by athena (it's automatically ignored by git.) For subsequent builds, athena
+(it's automatically ignored by git.) For subsequent builds, athena
 rebuilds only the updated files, rather than the entire codebase.
 
 If you're using your own hosting solution you know what to do now. Happy
 blogging!
 
-For GitHub pages deployment a nice workflow is the following:
+For GitHub pages a nice deployment workflow is the following:
 
-1. Create a `your-username.github.io` repo.
+1. Create a `username.github.io` repo.
 1. `$ mkdir build` manually and `cd` in.
 1. `$ git init` (athena's git ignores the `build/` directory; this is fine)
-1. `$ git remote add origin git@github.com:your-username/your-username.github.io.git`
+1. `$ git remote add origin git@github.com:username/username.github.io.git`
 1. `$ cd ..`
 1. `$ python athena.py build`
 1. `$ cd build/`
@@ -133,23 +179,7 @@ For GitHub pages deployment a nice workflow is the following:
 1. `$ git commit -m "deploys athena"`
 1. `$ git push origin master`
 
-Wait a few moments and browse `your-username.github.io`. Happy blogging!
-
-:bulb: **Tip**: install athena as executable in your `$PATH`. Start the local
-server and build your site from anywhere. Create a file named `athena` in
-`/usr/local/bin/` or your `$PATH` equivalent with the following content:
-
-    #!/bin/bash
-
-    if [[ $# -eq 1 ]]; then
-      cd /directory/where/athena/is && source env/bin/activate && python athena.py build
-    else
-      cd /directory/where/athena/is && source env/bin/activate && python athena.py
-    fi
-
-Then make it executable:
-
-    $ chmod +x /usr/local/bin/athena
+Wait a few moments and browse `username.github.io`. Happy blogging!
 
 ## License
 
@@ -157,5 +187,6 @@ MIT
 
 [et]: https://en.wikipedia.org/wiki/Edward_Tufte
 [demo]: https://apas.github.io/athena/
-[commit]: https://github.com/apas/athena/commit/91cfe00224b08f02bddf6aad4a7039aa54a3cd9e
-[footnote]: https://gist.github.com/apas/fbdcc1617be4b9dbcab8895ad028b285
+[elems]: https://raw.githubusercontent.com/apas/athena/pandoc/pages/elements.md
+[mml]: https://www.w3.org/Math/whatIsMathML.html
+[pdcf]: https://github.com/lierdakil/pandoc-crossref

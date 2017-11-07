@@ -1,22 +1,33 @@
+---
 title: Elements
 date: 2016-03-12
-description: A short description of the post.
+description: A demonstration of Tufte CSS on various HTML elements.
+...
 
-    :::python
-    test
+This, is a paragraph with `code`, **bold**, *italics*, a numbered margin note.
+[^firstnote]
 
-> Blockquote
-
-This, is a paragraph with `code`, **bold**, *italics*, a numbered margin note. [^firstnote]
-
-jQuery applies a `newthought` span in the first word of the first paragraph element of each post. [^asd]
+jQuery applies a `newthought` span in the first word of the first paragraph
+element of each post. [^asd]
 
 # H1
 ## H2
 ### H3
 #### H4
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel ullamcorper felis. Phasellus <a href="#">tincidunt</a> quam vel tellus vestibulum, vitae aliquet neque malesuada. Sed <a href="#">finibus mauris</a> non mi semper, vitae imperdiet dui maximus. Proin sit amet mi venenatis, semper orci eu, ornare mauris. Morbi erat augue, <a href="#">scelerisque</a> <a href="#">eget</a> <a href="#">pharetra</a> sed, fringilla ut leo. Etiam ut arcu nec massa bibendum lobortis ac eu justo. Proin sit amet sagittis est. [^note]
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel
+ullamcorper felis. Phasellus [tincidunt](#) quam vel tellus
+vestibulum, vitae aliquet neque malesuada. Sed [finibus mauris](#)
+non mi semper, vitae imperdiet dui maximus. Proin sit amet mi venenatis,
+semper orci eu, ornare mauris. Morbi erat augue, [scelerisque](#)
+[eget](#) [pharetra](#) sed, fringilla ut leo. Etiam ut arcu nec massa
+bibendum lobortis ac eu justo. Proin sit amet sagittis est. [^note]
+
+``` {.python}
+# a code block with syntax highlighting
+def hello():
+    print "world"
+```
 
 > A blockquote.
 
@@ -25,27 +36,35 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel ullamcorpe
 * Items
 * To check out
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel ullamcorper felis. Phasellus tincidunt quam vel tellus vestibulum, vitae aliquet neque malesuada. Sed finibus mauris non mi semper, vitae imperdiet dui maximus. Proin sit amet mi venenatis, semper orci eu, ornare mauris. Morbi erat augue, scelerisque eget pharetra sed, fringilla ut leo. Etiam ut arcu nec massa bibendum lobortis ac eu justo. Proin sit amet sagittis est. [^stuff]
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel
+ullamcorper felis. Phasellus tincidunt quam vel tellus vestibulum, vitae
+aliquet neque malesuada. Sed finibus mauris non mi semper, vitae
+imperdiet dui maximus. Proin sit amet mi venenatis, semper orci eu,
+ornare mauris. Morbi erat augue, scelerisque eget pharetra sed,
+fringilla ut leo. Etiam ut arcu nec massa bibendum lobortis ac eu justo.
+Proin sit amet sagittis est. [^stuff] An academic bibliography
+reference. [@wilson2017good]
 
 A code block.
     
-    :::python
-    import re
+```python
+import re
 
-    var = True # Comment
+var = True # Comment
 
-    for test_string in ['555-1212', 'ILL-EGAL']:
-      if re.match(r'^\d{3}-\d{4}$', test_string):
-        print test_string, 'is a valid US local phone number'
-      else:
-        print test_string, 'rejected'
+for test_string in ['555-1212', 'ILL-EGAL']:
+  if re.match(r'^\d{3}-\d{4}$', test_string):
+    print test_string, 'is a valid US local phone number'
+  else:
+    print test_string, 'rejected'
+```
 
 1. Ordered list
 2. Few
 3. Items
 4. To check out
 
-Paragraph with “smart quotes.” <u>Underlined</u> text.
+Paragraph with "smart quotes." <u>Underlined</u> text.
 
 | Tables   |      Are      |  Cool |
 |:---------|---------------|-------|
@@ -53,15 +72,27 @@ Paragraph with “smart quotes.” <u>Underlined</u> text.
 | col 2 is |    centered   |   $12 |
 | col 3 is | right-aligned |    $1 |
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel ullamcorper felis. Phasellus tincidunt quam vel tellus vestibulum, vitae aliquet neque malesuada. Sed finibus mauris non mi semper, vitae imperdiet dui maximus. [^inlinen] Proin sit amet mi venenatis, semper orci eu, ornare mauris. Morbi erat augue, scelerisque eget pharetra sed, fringilla ut leo. Etiam ut arcu nec massa bibendum lobortis ac eu justo. Proin sit amet sagittis est.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel
+ullamcorper felis. Phasellus tincidunt quam vel tellus vestibulum, vitae
+aliquet neque malesuada. Sed finibus mauris non mi semper, vitae imperdiet dui
+maximus. [^inlinen] Proin sit amet mi venenatis, semper orci eu, ornare
+mauris. Morbi erat augue, scelerisque eget pharetra sed, fringilla ut leo.
+Etiam ut arcu nec massa bibendum lobortis ac eu justo. Proin sit amet sagittis
+est. [@fig:test]
 
-<figcaption>Figure 1: A note about the image.</figcaption>
-![An image.](/static/img/figure1.png "An image.")
+![A note about the image.](/static/img/figure1.png "An image."){#fig:test}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel ullamcorper felis. Phasellus tincidunt quam vel tellus vestibulum, vitae aliquet neque malesuada. Sed finibus mauris non mi semper, vitae imperdiet dui maximus. Proin sit amet mi venenatis, semper orci eu, ornare mauris. Morbi erat augue, scelerisque eget pharetra sed, fringilla ut leo. Etiam ut arcu nec massa bibendum lobortis ac eu justo. Proin sit amet sagittis est.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel
+ullamcorper felis. Phasellus tincidunt quam vel tellus vestibulum, vitae
+aliquet neque malesuada. Sed finibus mauris non mi semper, vitae imperdiet dui
+maximus. Proin sit amet mi venenatis, semper orci eu, ornare mauris. Morbi
+erat augue, scelerisque eget pharetra sed, fringilla ut leo. Etiam ut arcu nec
+massa bibendum lobortis ac eu justo. Proin sit amet sagittis est.
+
+# References
 
 [^firstnote]: The note. E.g.: <a href="#">a link</a>.
-[^asd]: a2 new markdown generated footnote as native margin note
+[^asd]: Generated by pure markdown.
 [^note]: Another note.
-[^stuff]: Heheheher.
+[^stuff]: An explainer.
 [^inlinen]: Test!

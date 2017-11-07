@@ -1,6 +1,8 @@
+---
 title: Speeches
 date: 2016-06-05
-description: Speeches
+description: Two of the best speeches ever delivered.
+...
 
 ## Pericles' Funeral Oration
 

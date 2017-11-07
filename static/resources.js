@@ -10,7 +10,7 @@ $(window).on("load",  function () {
   }; 
 });
 
-$(window).on('resize', function() {
+$(window).on("resize", function() {
   enquire.register("screen and (max-width: 760px)", {
     match : function() {
       $('#blogdesc').insertBefore('.thefooter');
@@ -23,6 +23,14 @@ $(window).on('resize', function() {
 
 $(window).on("load",  function () {
   $(".thearticle > article > p:nth-of-type(2)").html(function (i, html) {
-    return html.replace(/(\w+\S+\s)/, '<span class="newthought">$1</span>')
+    return html.replace(/(([α-ωA-Ω]|[a-zA-Z])+\S+\s)/,
+      '<span class="newthought">$1</span>')
+  });
+});
+
+$(window).on("load", function () {
+  $("p.caption").each(function (i, html) {
+    $(this).insertBefore($(this).prev().parent());
+    $(this).replaceWith("<figcaption>"+$(this).text()+"</figcaption>");
   });
 });

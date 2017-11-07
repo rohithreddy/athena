@@ -2,7 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8"/>
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='tufte.min.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',
+  filename='tufte.css') }}">
   <title>Athena</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel='shortcut icon' href="{{ url_for('static', filename='favicon.ico') }}" type='image/x-icon'/>
@@ -14,7 +15,12 @@
 <body>
   <div class="header">
     <div class="splash">
-      <p><span class="newthought">I'm Athena.</span> This is a small description for the homepage with a navigation bar.</p>
+      <p>
+        <img align="left" width="41" height="54" class="mached" src="{{
+        url_for('static', filename='athena.png') }}">
+        <span class="newthought">I'm Athena.</span><br />This is a small
+        description for the homepage with a navigation bar.
+      </p>
     </div> <!-- splash end -->
 
     <div class="navigation">
@@ -29,9 +35,12 @@
   <div class="content">
 
 {% block content %}
-    {% for page in pages %}
-        <h1><a href="{{ url_for("page", path=page.path) }}">{{ page.title }}</a></h1>
-        <subtitle class="loop-date">{{ page.date.strftime('%B %d, %Y') }}</subtitle>
+    {% for page in pages|sort(attribute="date")|reverse %}
+        <h1><a href="{{ url_for("page", path=page.path) }}">
+          {{ page.title }}</a></h1>
+        <subtitle class="loop-date">
+          {{ page.date.strftime('%B %d, %Y') }}
+        </subtitle>
     {% else %}
         <p>No posts yet.</p>
     {% endfor %}
