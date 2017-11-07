@@ -34,5 +34,3 @@ $(window).on("load", function () {
     $(this).replaceWith("<figcaption>"+$(this).text()+"</figcaption>");
   });
 });
-
-$.bigfoot();
