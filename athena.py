@@ -37,7 +37,7 @@ def recent_feed():
       unicode(page.__html__()),
         content_type='html',
         url=make_external("/posts/"+page.path),
-        author="Apostolos Papadopoulos",
+        author="Your Name",
         updated=datetime.combine(page["date"], datetime.min.time()),
         published=datetime.combine(page["date"], datetime.min.time())
       )
