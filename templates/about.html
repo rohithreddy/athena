@@ -16,7 +16,10 @@
   <article>
     <h1>About</h1>
     <p><span id="blogdesc" class="marginnote">
-        <span class="newthought">Thanks for visiting.</span> A brief blog description with a navigation bar.<br><br><a href="/">home</a> · <a href="/about/">about</a> · <a href="/feed.atom">subscribe</a>
+        <span class="newthought">Thanks for visiting.</span> A brief blog
+        description with a navigation bar.<br><br><a href="{{ url_for("index")
+      }}">home</a> · <a href="{{ url_for("about") }}">about</a> · <a
+      href="{{ url_for("recent_feed") }}">subscribe</a>
       </span>
     </p>
     <section>

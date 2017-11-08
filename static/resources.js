@@ -10,7 +10,7 @@ $(window).on("load",  function () {
   }; 
 });
 
-$(window).on("resize", function() {
+$(window).on("load", function() {
   enquire.register("screen and (max-width: 760px)", {
     match : function() {
       $('#blogdesc').insertBefore('.thefooter');
