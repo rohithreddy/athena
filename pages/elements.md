@@ -80,7 +80,8 @@ mauris. Morbi erat augue, scelerisque eget pharetra sed, fringilla ut leo.
 Etiam ut arcu nec massa bibendum lobortis ac eu justo. Proin sit amet sagittis
 est. [@fig:test]
 
-![A note about the image.](/static/img/figure1.png "An image."){#fig:test}
+![A note about the image.]( {{
+url_for("static", filename="img/figure1.png")}} "An image."){#fig:test}
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel
 ullamcorper felis. Phasellus tincidunt quam vel tellus vestibulum, vitae

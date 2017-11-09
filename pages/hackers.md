@@ -51,7 +51,8 @@ certainly be more than just deciding how to implement some spec. At its best,
 it's creating the spec-- though it turns out the best way to do that is to
 implement it.
 
-![Hackers and painters; by Pieter Bruegel.](/static/img/bruegel.jpg)
+![Hackers and painters; by Pieter Bruegel.]( {{
+url_for('static', filename='img/bruegel.jpg') }})
 
 Perhaps one day "computer science" will, like Yugoslavia, get broken up into
 its component parts. That might be a good thing. Especially if it meant

@@ -59,7 +59,8 @@ brief summary of the most frequent elements is provided below.
 
 **Image**
 
-    ![Pieter Bruegel.](/static/img/bruegel.jpg){#fig:bruegel}
+    ![Hackers and painters; by Pieter Bruegel.]( {{
+    url_for('static', filename='img/bruegel.jpg') }}){#fig:bruegel}
 
 A relevant directory to host and serve from all your image assets is
 `static/img`. The image caption is used as the image's margin note.
