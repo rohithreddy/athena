@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
   <meta charset="utf-8"/>
-  <title>About Athena</title>
+  <title>About &mdash; {{ config.title }}</title>
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='tufte.css') }}">
   <script type="text/javascript" src="{{ url_for('static', filename='enquire.min.js') }}"></script>
   <script type="text/javascript" src="{{ url_for('static', filename='jquery-1.12.4.min.js') }}"></script>
@@ -16,10 +16,10 @@
   <article>
     <h1>About</h1>
     <p><span id="blogdesc" class="marginnote">
-        <span class="newthought">Thanks for visiting.</span> A brief blog
-        description with a navigation bar.<br><br><a href="{{ url_for("index")
-      }}">home</a> · <a href="{{ url_for("about") }}">about</a> · <a
-      href="{{ url_for("recent_feed") }}">subscribe</a>
+        {{ config.sidebardesc }}<br><br>
+        <a href="{{ url_for("index") }}">home</a> ·
+        <a href="{{ url_for("about") }}">about</a> ·
+        <a href="{{ url_for("recent_feed") }}">subscribe</a>
       </span>
     </p>
     <section>
@@ -27,9 +27,10 @@
     </section>
   </article>
   </div>
+
   <div class="thefooter">
-    <p>Footer</p>
-    <p>copyright, <i>2016</i></p>
+    <p>{{ config.footer }}
+      <br><br>Copyright, <i>2016</i></p>
   </div> <!-- footer end -->
 </body>
 </html>

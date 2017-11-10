@@ -4,7 +4,7 @@
   <meta charset="utf-8"/>
   <link rel="stylesheet" type="text/css" href="{{ url_for('static',
   filename='tufte.css') }}">
-  <title>Athena</title>
+  <title>{{ config.title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel='shortcut icon' href="{{ url_for('static', filename='favicon.ico') }}" type='image/x-icon'/>
   <style type="text/css">
@@ -18,8 +18,8 @@
       <p>
         <img align="left" width="41" height="54" class="mached" src="{{
         url_for('static', filename='athena.png') }}">
-        <span class="newthought">I'm Athena.</span><br />This is a small
-        description for the homepage with a navigation bar.
+        <span class="newthought">{{ config.title }}</span><br />
+        {{ config.indexdesc }}
       </p>
     </div> <!-- splash end -->
 
@@ -49,8 +49,9 @@
  </div> <!-- content end -->
 
   <div class="thefooter">
-    <p>Footer
-    <br><br>copyright, <i>2016</i></p>
+    <p>{{ config.footer }}
+      <br><br>Copyright, <i>2016</i>
+    </p>
   </div> <!-- footer end -->
 </body>
 </html>

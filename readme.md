@@ -39,7 +39,6 @@ athena reads Markdown files from the `pages/` directory and builds static HTML
 files. Posts must start with the following YAML structure:
 
     ---
-    author: Johnny Appleseed
     title: Title of the post
     date: 2016-03-12
     description: A short description of the post.
