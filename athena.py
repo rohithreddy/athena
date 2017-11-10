@@ -7,7 +7,11 @@ from flask_frozen import Freezer
 from werkzeug.contrib.atom import AtomFeed
 from flatpandoc import FlatPagesPandoc
 import subprocess as proc
-import config
+try:
+  import config
+except ImportError, e:
+  print("Please run install.py first.")
+  raise e
 
 DEBUG = True
 FLATPAGES_AUTO_RELOAD = DEBUG
