@@ -110,9 +110,10 @@ Tufte enjoyment.
 
 **Bib citations**
 
-Simply create a `.bib` file in the `/pages` directory and populate it
-accordingly. At build time, athena creates a new `.bib` index out of all
-`.bib` files. Then, simply reference your citation as such:
+Simply create a `.bib` file in the `/pages` directory for each post that
+cites one or more references and populate it accordingly. At build time,
+athena creates a new `all.bib` index out of all `.bib` files. Then, simply
+reference your citation as you normally would:
 
     At one end you have people who are really mathematicians, but call
     what they're doing computer science so they can get
