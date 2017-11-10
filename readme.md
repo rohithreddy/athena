@@ -20,18 +20,49 @@ Edward Tufte’s style is known for its simplicity, extensive use of sidenotes,
 tight integration of graphics with text, and carefully chosen typography.
 [More about ET][et].
 
-## Installation
+## Install
+
+Dependencies: `pandoc`, `pandoc-citeproc`, `pandoc-crossref`,
+`pandoc-sidenote`, Python 2.7
 
 1. `git clone https://github.com/apas/athena.git`
-1. `brew install pandoc`
-1. `brew install pandoc-citeproc`
-1. `brew install pandoc-crossref`
-1. `brew install jez/formulae/pandoc-sidenote`
-1. `virtualenv --python=/usr/bin/python env` or Python 2.7 equivalent path
-1. `source env/bin/activate`
-1. `pip install -r requirements.txt`
+1. `python install.py`
+
+The install script will check for Python 2.7 and Pandoc dependencies, create
+and activate an appropriate virtual environment, install the pip dependencies,
+and finally prompt you to customize athena with a blog title and author, a
+description for the home page and sidebar, and a footer caption like:
+
+``` {.bash}
+==> Customizing athena. . .
+Enter title: Athena
+Enter author: Apostolos Papadopoulos
+Enter home page description: A description for the homepage with a navigation bar.
+Enter sidebar description: A brief description for each post with a navigation bar.
+Enter footer: Footer
+```
+
+Upon a successful installation, the script generates a `config.py` file which
+contains the values you've entered when prompted and are shared between
+the Python backend and the Jinja template engine.
 
 ## Usage
+
+### Running athena
+
+1. `python athena.py`
+
+athena will start a Flask server at `127.0.0.1:5000`.
+
+### Building static HTML
+
+1. `python athena.py build`
+
+A new `build/` directory will be created (it's automatically ignored by git.)
+For subsequent builds, athena rebuilds only the updated files, rather than the
+entire codebase.
+
+For deploying athena to a remove server read the relevant section below.
 
 ### Post structure
 
@@ -39,7 +70,6 @@ athena reads Markdown files from the `pages/` directory and builds static HTML
 files. Posts must start with the following YAML structure:
 
     ---
-    author: Johnny Appleseed
     title: Title of the post
     date: 2016-03-12
     description: A short description of the post.
@@ -106,9 +136,10 @@ Tufte enjoyment.
 
 **Bib citations**
 
-Simply create a `.bib` file in the `/pages` directory and populate it
-accordingly. At build time, athena creates a new `.bib` index out of all
-`.bib` files. Then, simply reference your citation as such:
+Simply create a `.bib` file in the `/pages` directory for each post that
+cites one or more references and populate it accordingly. At build time,
+athena creates a new `all.bib` index out of all `.bib` files. Then, simply
+reference your citation as you normally would:
 
     At one end you have people who are really mathematicians, but call
     what they're doing computer science so they can get
@@ -140,29 +171,18 @@ text. For the complete cross-reference documentation please visit the
 
 athena generates an Atom feed at the `/feed.atom` endpoint.
 
-### Remove boilerplate
-
-Inside `templates/` edit various instances of default athena labeling in
-`about.html`, `index.html`, and `page.html`. In `page.html` edit lines 19 and
-24 (Facebook and Twitter image meta tags) and point both to a proper image
-link inside `static/img/`. In `athena.py` amend lines 25, 28, 34 with your
-blog and author name in order to appropriately generate the Atom feed.
-
 ### Try as you write
 
-You can start local Flask server with `$ python athena.py` at
-`127.0.0.1:5000`. This allows you to test everything locally before committing
-and deploying to your remote server. If you're using Sublime Text I recommend
-installing the LiveReload plugin for Safari or Google Chrome.
+Simply run athena as documented above. This allows you to test everything
+locally before building to static HTML, committing, and deploying to your
+remote server. If you're using Sublime Text I recommend installing the
+LiveReload plugin for Safari or Google Chrome.
 
-### Deploy
+### Deploying athena
 
 athena works out of the box with any server capable of serving HTML content.
 If you do not want to pay for or own a server you can use GitHub Pages. It's
-where the cool kids hang out nowadays, anyway. You can generate your static
-blog with `$ python athena.py build`. A new `build/` directory will be created
-(it's automatically ignored by git.) For subsequent builds, athena
-rebuilds only the updated files, rather than the entire codebase.
+where the cool kids hang out nowadays, anyway.
 
 If you're using your own hosting solution you know what to do now. Happy
 blogging!
