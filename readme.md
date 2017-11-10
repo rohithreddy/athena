@@ -33,6 +33,11 @@ tight integration of graphics with text, and carefully chosen typography.
 
 ## Usage
 
+### Blog customization
+
+Adjust as necessary the values in `config.py` which are shared between the
+Python backend and the Jinja template engine.
+
 ### Post structure
 
 athena reads Markdown files from the `pages/` directory and builds static HTML
@@ -138,14 +143,6 @@ text. For the complete cross-reference documentation please visit the
 ### Atom feed
 
 athena generates an Atom feed at the `/feed.atom` endpoint.
-
-### Remove boilerplate
-
-Inside `templates/` edit various instances of default athena labeling in
-`about.html`, `index.html`, and `page.html`. In `page.html` edit lines 19 and
-24 (Facebook and Twitter image meta tags) and point both to a proper image
-link inside `static/img/`. In `athena.py` amend lines 25, 28, 34 with your
-blog and author name in order to appropriately generate the Atom feed.
 
 ### Try as you write
 
