@@ -27,7 +27,7 @@ tight integration of graphics with text, and carefully chosen typography.
 1. `brew install pandoc-citeproc`
 1. `brew install pandoc-crossref`
 1. `brew install jez/formulae/pandoc-sidenote`
-1. `virtualenv --python=/usr/bin/python env` or Python 2.7 equivalent path
+1. `virtualenv --python=/usr/bin/python env` or equivalent Python 2.7 path
 1. `source env/bin/activate`
 1. `pip install -r requirements.txt`
 
