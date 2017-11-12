@@ -83,7 +83,7 @@ class FlatPagesPandoc(object):
       "--filter=pandoc-crossref",
       "--filter=pandoc-citeproc",
       "--filter=pandoc-sidenote",
-      "--standalone", "-S",
+      "--standalone",
       "--mathml",
       "--base-header-level=2",
       "--highlight-style", "pygments",
@@ -95,7 +95,7 @@ class FlatPagesPandoc(object):
     output = pypandoc.convert_text(
       text.encode("utf8"),
       'html',
-      format="markdown+raw_tex+yaml_metadata_block",
+      format="markdown+raw_tex+smart+yaml_metadata_block",
       extra_args=extra_args
     )
 
