@@ -99,8 +99,6 @@ class FlatPagesPandoc(object):
 
     if pandocver < 2:
       extra_args.append("-S")
-
-    if pandocver < 2:
       format_str = "markdown+raw_tex+yaml_metadata_block"
     else:
       format_str = "markdown+raw_tex+smart+yaml_metadata_block"
