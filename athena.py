@@ -8,6 +8,9 @@ from werkzeug.contrib.atom import AtomFeed
 from flatpandoc import FlatPagesPandoc
 import subprocess as proc
 import operator
+import fileinput
+import glob
+import os
 try:
   import config
 except ImportError, e:
@@ -76,8 +79,16 @@ def page(path):
   return render_template("page.html", page=page,
                           hpages=hpages, config=config.config)
 
+def cat():
+  allp = os.path.join(os.getcwd(), "pages", "all.bib")
+  bibs = os.path.join(os.getcwd(), "pages", "*.bib")
+  with open(allp, "w") as f:
+    for line in fileinput.input(glob.glob(bibs)):
+      f.write(line)
+    fileinput.close()
+
 if __name__ == "__main__":
-  proc.call("./managebib")
+  cat()
   if len(sys.argv) > 1 and sys.argv[1] == "build":
     freezer.freeze()
   else:
