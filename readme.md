@@ -174,8 +174,8 @@ reference your citation as you normally would:
     what they're doing computer science so they can get
     DARPA grants. [@clark1988design]
 
-It is recommended to end your Markdown files which reference a `.bib` citation
-with a `# References` element in order to properly highlight them.
+For posts with citations, athena automatically appends the relevant
+bibliography at the end of the post under a References header element.
 
 **Math**
 
