@@ -92,7 +92,8 @@ class FlatPagesPandoc(object):
       "--highlight-style", "pygments",
       '--bibliography="pages/all.bib"',
       "--csl=pages/lncs.csl",
-      "--metadata", "link-citations=true"
+      "-Mreference-section-title=References",
+      "-Mlink-citations=true"
     ]
 
     pandocver = int(pypandoc.get_pandoc_version()[0])
