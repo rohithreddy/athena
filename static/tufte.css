@@ -350,8 +350,7 @@ label.sidenote-number { display: inline; }
 label.margin-toggle:not(.sidenote-number) { display: none; }
 
 @media(max-width: 760px) { label.margin-toggle:not(.sidenote-number) { display: inline; }
-                           .sidenote { display: none; }
-                           .marginnote { float: none; }
+                           .sidenote, .marginnote { display: none; }
                            img.mached { width: 41px; height: 54px;}
                            #blogdesc { width: 90%; display: block;}
                            .thefooter { width: 90% !important; }
@@ -377,7 +376,8 @@ label.margin-toggle:not(.sidenote-number) { display: none; }
                                             vertical-align: baseline;
                                             position: relative; }
                            table, table.booktabs { width: 85%; }
-                           img { width: 100%; } }
+                           img { width: 100%; }
+                           p { overflow: hidden; }}
 
 /* amendments */
 
