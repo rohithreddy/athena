@@ -350,7 +350,9 @@ label.sidenote-number { display: inline; }
 label.margin-toggle:not(.sidenote-number) { display: none; }
 
 @media(max-width: 760px) { label.margin-toggle:not(.sidenote-number) { display: inline; }
+                           figure .marginnote { display: inline; }
                            .sidenote, .marginnote { display: none; }
+                           .marginnote { float: none; }
                            img.mached { width: 41px; height: 54px;}
                            #blogdesc { width: 90%; display: block;}
                            .thefooter { width: 90% !important; }
