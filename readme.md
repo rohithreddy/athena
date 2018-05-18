@@ -62,7 +62,7 @@ A new `build/` directory will be created (it's automatically ignored by git.)
 For subsequent builds, athena rebuilds only the updated files, rather than the
 entire codebase.
 
-For deploying athena to a remove server read the relevant section below.
+For deploying athena to a remote server read the relevant section below.
 
 ### Post structure
 
@@ -216,20 +216,8 @@ where the cool kids hang out nowadays, anyway.
 If you're using your own hosting solution you know what to do now. Happy
 blogging!
 
-For GitHub pages a nice deployment workflow is the following:
-
-1. Create a `username.github.io` repo.
-1. `$ mkdir build` manually and `cd` in.
-1. `$ git init` (athena's git ignores the `build/` directory; this is fine)
-1. `$ git remote add origin git@github.com:username/username.github.io.git`
-1. `$ cd ..`
-1. `$ python athena.py build`
-1. `$ cd build/`
-1. `$ git add .`
-1. `$ git commit -m "deploys athena"`
-1. `$ git push origin master`
-
-Wait a few moments and browse `username.github.io`. Happy blogging!
+For GitHub pages you can `init` a new git repo from within the `/build`
+directory since athena's ignoring it and `push from there.
 
 ## License
 
