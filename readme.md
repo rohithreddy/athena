@@ -1,6 +1,6 @@
 # athena
 
-**athena** is an elegant, minimalist, light-weight static blog generator
+**athena** is an elegant, minimalist, simple static blog generator
 written in Python. It is based on Flask, Pandoc, and Tufte CSS.
 
 ![athena screenshot](/static/athena.png)
