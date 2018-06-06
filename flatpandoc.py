@@ -16,7 +16,7 @@ With some changes by @apas:
 
 License: MIT
 """
-from __future__ import print_function
+
 import pkg_resources
 import pypandoc
 
@@ -76,8 +76,8 @@ class FlatPagesPandoc(object):
     :param text: the text of the flat page
     :type text: string
     """
-    if type(text) == str:
-      text = unicode(text, self.app.config["FLATPAGES_ENCODING"])
+    #if type(text) == str:
+    #  text = str(text, self.app.config["FLATPAGES_ENCODING"])
 
     if self.pre_render:
       text = render_template_string(Markup(text))

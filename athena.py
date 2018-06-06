@@ -1,5 +1,5 @@
 import sys
-from urlparse import urljoin
+from urllib.parse import urljoin
 from datetime import date, datetime
 from flask import Flask, render_template, request
 from flask_flatpages import FlatPages
@@ -13,7 +13,7 @@ import glob
 import os
 try:
   import config
-except ImportError, e:
+except ImportError as e:
   print("Please run install.py first.")
   raise e
 
@@ -44,7 +44,7 @@ def recent_feed():
   for page in pages:
     if not page.meta.get("ispage"):
       feed.add(page["title"],
-        unicode(page.__html__()),
+        str(page.__html__()),
           content_type = 'html',
           url = make_external("/posts/"+page.path),
           author = config.config["author"],
@@ -56,8 +56,8 @@ def recent_feed():
 
 @athena.route("/")
 def index():
-  posts = filter(lambda page: "ispage" not in page.meta, pages)
-  hpages = filter(lambda page: "ispage" in page.meta, pages)
+  posts = [page for page in pages if "ispage" not in page.meta]
+  hpages = [page for page in pages if "ispage" in page.meta]
   return render_template("index.html", pages=posts,
                           hpages=hpages, config=config.config)
 
@@ -68,14 +68,14 @@ def hardpagelink(path):
         if page.path == path:
             if page.meta["ispage"]:
                 hpage = page
-    hpages = filter(lambda page: "ispage" in page.meta, pages)
+    hpages = [page for page in pages if "ispage" in page.meta]
     return render_template("hard.html", page=hpage,
                             hpages=hpages, config=config.config)
 
 @athena.route("/posts/<path:path>/")
 def page(path):
   page = pages.get_or_404(path)
-  hpages = filter(lambda page: "ispage" in page.meta, pages)
+  hpages = [page for page in pages if "ispage" in page.meta]
   return render_template("page.html", page=page,
                           hpages=hpages, config=config.config)
 
