@@ -23,12 +23,12 @@ tight integration of graphics with text, and carefully chosen typography.
 ## Install
 
 Dependencies: `pandoc`, `pandoc-citeproc`, `pandoc-crossref`,
-`pandoc-sidenote`, Python 2.7
+`pandoc-sidenote`, Python 3
 
 1. `git clone https://github.com/apas/athena.git`
-1. `python install.py`
+1. `python3 install.py`
 
-The install script will check for Python 2.7 and Pandoc dependencies, create
+The install script will check for Python 3 and Pandoc dependencies, create
 and activate an appropriate virtual environment, install the pip dependencies,
 and finally prompt you to customize athena with a blog title and author, a
 description for the home page and sidebar, and a footer caption like:
