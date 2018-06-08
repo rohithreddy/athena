@@ -23,7 +23,7 @@ tight integration of graphics with text, and carefully chosen typography.
 ## Install
 
 Dependencies: `pandoc`, `pandoc-citeproc`, `pandoc-crossref`,
-`pandoc-sidenote`, Python 3
+`pandoc-sidenote`, `Python 3`
 
 1. `git clone https://github.com/apas/athena.git`
 1. `python3 install.py`
@@ -217,7 +217,7 @@ If you're using your own hosting solution you know what to do now. Happy
 blogging!
 
 For GitHub pages you can `init` a new git repo from within the `/build`
-directory since athena's ignoring it and `push from there.
+directory since athena's ignoring it and `push from there.`
 
 ## License
 

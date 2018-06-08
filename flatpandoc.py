@@ -13,6 +13,7 @@ With some changes by @apas:
   - Invoke pandoc via pypandoc instead subprocess
   - Indentation changes
   - Support of Pandoc 2.0 by @ThoseGrapefruits
+  - Support of Python 3 by @frstp64
 
 License: MIT
 """
