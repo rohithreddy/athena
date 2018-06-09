@@ -22,8 +22,8 @@ tight integration of graphics with text, and carefully chosen typography.
 
 ## Install
 
-Dependencies: `pandoc`, `pandoc-citeproc`, `pandoc-crossref`,
-`pandoc-sidenote`, `Python 3`
+Dependencies: `Python 3`, `pandoc`, `pandoc-citeproc`, `pandoc-crossref`,
+`pandoc-sidenote`.
 
 1. `git clone https://github.com/apas/athena.git`
 1. `python3 install.py`
