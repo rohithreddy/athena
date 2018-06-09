@@ -217,7 +217,7 @@ If you're using your own hosting solution you know what to do now. Happy
 blogging!
 
 For GitHub pages you can `init` a new git repo from within the `/build`
-directory since athena's ignoring it and `push from there.`
+directory since athena's ignoring it and `push` from there.
 
 ## License
 
