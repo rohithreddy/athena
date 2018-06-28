@@ -6,7 +6,7 @@ description: Oneliners to start a server to serve files over a local area networ
 
 Files can be easily shared among multiple devices over a local network by starting a http server using tools provided by python standard library, the module http.server on python3.X or SimpleHTTPServer on python2.X
 
-Twisted is a better option for performance, you have to install dependencies from https://twistedmatrix.com/trac/wiki
+Twisted is a better option for performance, you have to install dependencies from <span style="color:blue">[Twistd](https://twistedmatrix.com/trac/wiki)</span>
 
 Change working directory to required location
 
